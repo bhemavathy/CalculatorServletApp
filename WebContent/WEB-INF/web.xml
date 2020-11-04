@@ -1,37 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>Simple Servlet Application</display-name>
-  <servlet>
-    <servlet-name>Webservlet</servlet-name>
-    <servlet-class>servlet.CalWeb</servlet-class>
-  </servlet>
-  
-  
-         <servlet-mapping>
-        <servlet-name>Webservlet</servlet-name>
-       
-        <url-pattern>/per</url-pattern>        
-    </servlet-mapping>
-    
-         <servlet-mapping>
-        <servlet-name>Webservlet</servlet-name>
-        <url-pattern>/div</url-pattern>        
-    </servlet-mapping>
-    
-         <servlet-mapping>
-        <servlet-name>Webservlet</servlet-name>
-        <url-pattern>/mul</url-pattern>
-    </servlet-mapping>
-    
-         <servlet-mapping>
-        <servlet-name>Webservlet</servlet-name>
-        <url-pattern>/sub</url-pattern>
-    </servlet-mapping>
-        
-        <servlet-mapping>
-        <servlet-name>Webservlet</servlet-name>
-        <url-pattern>/add</url-pattern>
-    </servlet-mapping>
-    
-   
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<display-name>Simple Servlet Application</display-name>
+	<servlet>
+		<servlet-name>Webservlet</servlet-name>
+		<servlet-class>servlet.CalWeb</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>Webservlet</servlet-name>
+
+		<url-pattern>/per</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Webservlet</servlet-name>
+		<url-pattern>/div</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Webservlet</servlet-name>
+		<url-pattern>/mul</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Webservlet</servlet-name>
+		<url-pattern>/sub</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>Webservlet</servlet-name>
+		<url-pattern>/add</url-pattern>
+	</servlet-mapping>
+
+
+	<filter>
+		<filter-name>CalFilter</filter-name>
+		<filter-class>servlet.CalcFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CalFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<servlet-name>Webservlet</servlet-name>
+	</filter-mapping>
+	
+	<error-page>
+    <error-code>403</error-code>
+    <location>/error-403.htm</location>
+</error-page>
+
+
 </web-app>

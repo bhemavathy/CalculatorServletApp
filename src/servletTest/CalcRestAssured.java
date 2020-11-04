@@ -1,6 +1,7 @@
 package servletTest;
 
 import junit.framework.Assert;
+import static org.junit.Assert.assertThat;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
@@ -27,10 +28,13 @@ public class CalcRestAssured {
 							.queryParam("input2", 8)
 							.request(Method.GET, "/add");
 		
+	
 		String resBody = res.getBody().asString();
 		
+		
+		
 		System.out.println("Response Body is: " + resBody);
-		Assert.assertTrue(resBody.contains("result"));
+		Assert.assertTrue(resBody.contains("result = 10"));
 		 
 		Assert.assertEquals(200, res.getStatusCode());
 		Assert.assertEquals("HTTP/1.1 200 OK", res.getStatusLine());
@@ -52,7 +56,7 @@ public class CalcRestAssured {
 		String resBody = res.getBody().asString();
 		
 		System.out.println("Response Body is: " + resBody);
-		Assert.assertTrue(resBody.contains("result"));
+		Assert.assertTrue(resBody.contains("result = -6"));
 		 
 		Assert.assertEquals(200, res.getStatusCode());
 		Assert.assertEquals("HTTP/1.1 200 OK", res.getStatusLine());
